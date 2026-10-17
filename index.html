@@ -1,260 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Special Sunflower Gift for Nikita 🌻</title>
-  
-  <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="An interactive, aesthetic sunflower gift card created especially for Nikita.">
-  <meta name="theme-color" content="#FAF6EE">
-  
-  <!-- Google Fonts: Playfair Display for elegant headings, Quicksand for warm friendly body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- GSAP for smooth animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-  <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- Interactive Canvas for Floating Petals and Sparkles -->
-  <canvas id="petal-canvas"></canvas>
-
-  <!-- MAIN APP CONTAINER -->
-  <main class="app-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>A Little Universe for Nikita 🌻 | For the girl who loves sunflowers</title>
     
-    <!-- ==================== SCREEN 1: WELCOME SCREEN ==================== -->
-    <section id="welcome-screen" class="screen active">
-      <div class="glass-card welcome-card">
-        
-        <!-- Animated Blooming Sunflower Hero SVG -->
-        <div class="sunflower-bloom-wrapper">
-          <svg class="sunflower-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="petal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FFE042" />
-                <stop offset="60%" stop-color="#FFB300" />
-                <stop offset="100%" stop-color="#E67E00" />
-              </linearGradient>
-              <radialGradient id="center-grad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#734012" />
-                <stop offset="70%" stop-color="#4A2605" />
-                <stop offset="100%" stop-color="#2D1501" />
-              </radialGradient>
-              <linearGradient id="stem-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#6BB066" />
-                <stop offset="100%" stop-color="#3B7A37" />
-              </linearGradient>
-            </defs>
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="An emotional, cinematic, editorial-quality digital greeting card handcrafted with love especially for Nikita." />
+    <meta name="theme-color" content="#FFF8E9" />
+    <meta property="og:title" content="A Little Universe for Nikita 🌻" />
+    <meta property="og:description" content="Made with sunshine, especially for Nikita." />
 
-            <!-- Stem & Leaves -->
-            <path class="sunflower-stem" d="M100 120 Q105 160 100 200" stroke="url(#stem-grad)" stroke-width="8" stroke-linecap="round" fill="none" />
-            <path class="sunflower-leaf leaf-left" d="M101 160 C80 150 60 165 75 180 C90 180 98 165 101 160 Z" fill="#52934D" />
-            <path class="sunflower-leaf leaf-right" d="M99 150 C120 140 140 155 125 170 C110 170 102 155 99 150 Z" fill="#458040" />
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif), DM Sans (Clean Sans), Caveat & Homemade Apple (Delicate handwritten annotations) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Homemade+Apple&display=swap"
+      rel="stylesheet"
+    />
 
-            <!-- Petals Layer (12 Petals rendered in circle) -->
-            <g class="petals-group">
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(0 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(30 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(60 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(90 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(120 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(150 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(180 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(210 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(240 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(270 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(300 100 100)" />
-              <path class="petal" d="M100 100 Q92 40 100 20 Q108 40 100 100" fill="url(#petal-grad)" transform="rotate(330 100 100)" />
-            </g>
-
-            <!-- Sunflower Seed Center -->
-            <circle class="sunflower-center" cx="100" cy="100" r="32" fill="url(#center-grad)" stroke="#FFAA00" stroke-width="2.5" />
-            <!-- Texture Dots -->
-            <circle cx="95" cy="92" r="2" fill="#E67E00" opacity="0.6"/>
-            <circle cx="105" cy="98" r="2" fill="#E67E00" opacity="0.6"/>
-            <circle cx="98" cy="106" r="2" fill="#E67E00" opacity="0.6"/>
-            <circle cx="107" cy="90" r="1.5" fill="#FFE042" opacity="0.5"/>
-          </svg>
-        </div>
-
-        <h1 class="welcome-title">Hey Nikita <span class="sunflower-icon">🌻</span></h1>
-        <p class="welcome-subtitle">I have a few questions for you...</p>
-
-        <button id="start-btn" class="btn btn-primary btn-glow" aria-label="Start Experience">
-          <span>Start 🌻</span>
-        </button>
-      </div>
-    </section>
-
-
-    <!-- ==================== SCREEN 2: QUESTION SCREEN ==================== -->
-    <section id="question-screen" class="screen">
-      
-      <!-- Progress Bar Indicator -->
-      <div class="progress-container">
-        <div class="progress-header">
-          <span class="progress-label">Sunflower Card</span>
-          <span id="progress-text" class="progress-badge">1 / 5</span>
-        </div>
-        <div class="progress-track">
-          <div id="progress-bar" class="progress-fill" style="width: 20%;"></div>
-        </div>
-      </div>
-
-      <!-- Main Question Glass Card -->
-      <div class="glass-card question-card">
-        
-        <!-- Question Content Container -->
-        <div id="question-box" class="question-content">
-          <div class="flower-decoration">✨ 🌻 ✨</div>
-          <h2 id="question-text" class="question-heading">Kya main tumhe bore toh nahi karta? 🌻</h2>
-          
-          <div id="options-container" class="options-group">
-            <button id="yes-btn" class="btn btn-yes">
-              <span class="btn-icon">💖</span>
-              <span class="btn-text">YES</span>
-            </button>
-            <button id="no-btn" class="btn btn-no">
-              <span class="btn-icon">🥲</span>
-              <span class="btn-text">NO</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- REACTION DISPLAY OVERLAY (Initially hidden, revealed on click) -->
-        <div id="reaction-box" class="reaction-content hidden">
-          
-          <!-- Cute Character SVG Reactions -->
-          <div class="character-wrapper">
-            
-            <!-- Character 1: Happy / Smiling Face with Hearts -->
-            <svg id="char-happy" class="cute-char happy-char" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="face-grad" cx="40%" cy="30%" r="70%">
-                  <stop offset="0%" stop-color="#FFF3D6" />
-                  <stop offset="100%" stop-color="#FFD699" />
-                </radialGradient>
-              </defs>
-              <!-- Glowing Aura -->
-              <circle cx="80" cy="80" r="70" fill="rgba(255, 200, 0, 0.15)" />
-              <!-- Face Body -->
-              <circle class="face-base" cx="80" cy="85" r="52" fill="url(#face-grad)" stroke="#E69A00" stroke-width="3" />
-              <!-- Blushing Cheeks -->
-              <ellipse class="blush" cx="52" cy="94" rx="9" ry="6" fill="#FF85A1" opacity="0.6" />
-              <ellipse class="blush" cx="108" cy="94" rx="9" ry="6" fill="#FF85A1" opacity="0.6" />
-              <!-- Curved Happy Eyes -->
-              <path class="eye" d="M48 76 Q58 64 68 76" stroke="#4A2605" stroke-width="4.5" stroke-linecap="round" fill="none" />
-              <path class="eye" d="M92 76 Q102 64 112 76" stroke="#4A2605" stroke-width="4.5" stroke-linecap="round" fill="none" />
-              <!-- Wide Happy Smile -->
-              <path class="smile" d="M62 96 Q80 118 98 96" stroke="#4A2605" stroke-width="4.5" stroke-linecap="round" fill="none" />
-              <!-- Animated Hearts -->
-              <path class="floating-heart heart-1" d="M30 45 C30 35 42 35 45 42 C48 35 60 35 60 45 C60 55 45 65 45 65 C45 65 30 55 30 45 Z" fill="#FF5E7E" />
-              <path class="floating-heart heart-2" d="M105 38 C105 30 115 30 118 35 C121 30 131 30 131 38 C131 46 118 54 118 54 C118 54 105 46 105 38 Z" fill="#FF85A1" />
-              <!-- Sparkles -->
-              <path class="sparkle-star" d="M80 15 L83 23 L91 26 L83 29 L80 37 L77 29 L69 26 L77 23 Z" fill="#FFC800" />
-            </svg>
-
-            <!-- Character 2: Emotional Teardrop Wiping Face -->
-            <svg id="char-sad" class="cute-char sad-char hidden" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="80" cy="80" r="70" fill="rgba(100, 150, 255, 0.1)" />
-              <!-- Face Body -->
-              <circle class="face-base" cx="80" cy="85" r="52" fill="#FFF3D6" stroke="#D9A05B" stroke-width="3" />
-              <!-- Soft Cheeks -->
-              <ellipse cx="50" cy="96" rx="8" ry="5" fill="#FFB7B2" opacity="0.5" />
-              <ellipse cx="110" cy="96" rx="8" ry="5" fill="#FFB7B2" opacity="0.5" />
-              <!-- Sad Teary Eyes -->
-              <circle cx="56" cy="78" r="6" fill="#3D2314" />
-              <circle cx="104" cy="78" r="6" fill="#3D2314" />
-              <circle cx="54" cy="76" r="2" fill="#FFFFFF" />
-              <circle cx="102" cy="76" r="2" fill="#FFFFFF" />
-              <!-- Sad Eyebrows -->
-              <path d="M46 66 Q56 70 64 65" stroke="#7A5230" stroke-width="3" stroke-linecap="round" fill="none" />
-              <path d="M96 65 Q104 70 114 66" stroke="#7A5230" stroke-width="3" stroke-linecap="round" fill="none" />
-              <!-- Pouting Sad Mouth -->
-              <path class="sad-mouth" d="M66 106 Q80 94 94 106" stroke="#3D2314" stroke-width="4" stroke-linecap="round" fill="none" />
-              <!-- Falling Teardrop -->
-              <path class="teardrop" d="M108 85 C108 85 116 97 116 102 C116 106 112 110 108 110 C104 110 100 106 100 102 C100 97 108 85 108 85 Z" fill="#60A5FA" opacity="0.9" />
-              <!-- Handkerchief / Tissue Wiping Eye -->
-              <path class="tissue" d="M40 90 L60 95 L55 115 L35 110 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" rx="3" />
-            </svg>
-
-          </div>
-
-          <!-- Dynamic Reaction Text -->
-          <h3 id="reaction-title" class="reaction-heading">Yesss 😄🌻</h3>
-          <p id="reaction-subtitle" class="reaction-subtext">I knew it!</p>
-          <div class="loading-dots">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ==================== SCREEN 3: FINAL GARDEN SCREEN ==================== -->
-    <section id="final-screen" class="screen">
-      <div class="glass-card final-card">
-        
-        <!-- Celebrating Grand Sunflower SVG -->
-        <div class="grand-sunflower-wrapper">
-          <svg class="grand-sunflower-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="120" cy="120" r="110" fill="rgba(255, 200, 0, 0.12)" class="pulse-aura" />
-            
-            <!-- Multiple Petal Rings -->
-            <g class="grand-petals">
-              <!-- Outer Ring -->
-              <g class="ring-outer">
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(0 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(22.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(45 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(67.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(90 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(112.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(135 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(157.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(180 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(202.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(225 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(247.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(270 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(292.5 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(315 120 120)"/>
-                <path d="M120 120 Q110 30 120 10 Q130 30 120 120" fill="url(#petal-grad)" transform="rotate(337.5 120 120)"/>
-              </g>
-            </g>
-
-            <!-- Inner Seed Core -->
-            <circle cx="120" cy="120" r="42" fill="url(#center-grad)" stroke="#FFD000" stroke-width="3" />
-            <circle cx="120" cy="120" r="32" fill="none" stroke="#E67E00" stroke-width="1.5" stroke-dasharray="4 3" />
-          </svg>
-        </div>
-
-        <h1 class="final-title">Thank you for answering 🌻</h1>
-        <p class="final-subtitle">Every answer brought a bright smile! Have a wonderful day ahead, Nikita ✨</p>
-
-        <!-- Status Badge -->
-        <div id="submission-status" class="status-badge hidden">
-          <span class="status-icon">💌</span>
-          <span class="status-text">Responses saved with care!</span>
-        </div>
-
-        <button id="replay-btn" class="btn btn-primary btn-glow" aria-label="Replay Experience">
-          <span>Replay 🌻</span>
-        </button>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- External Script Dependencies -->
-  <script src="config.js"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

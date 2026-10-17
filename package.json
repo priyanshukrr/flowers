@@ -1,0 +1,29 @@
+{
+  "name": "nikita-sunflower-card",
+  "version": "1.0.0",
+  "description": "A modern, aesthetic, mobile-first interactive digital gift card web application designed specifically for **Nikita**. Inspired by premium sunflower greeting cards, it features a blooming SVG sunflower hero, floating petal particle dynamics, glassmorphism UI cards, cute character reactions (smiling face with popping hearts & tear-wiping tissue face), and an automatic answer recording system.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/priyanshukrr/flowers/issues"
+  },
+  "homepage": "https://github.com/priyanshukrr/flowers#readme",
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.59.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}

@@ -1,0 +1,683 @@
+/* ===================================================================
+   A LITTLE UNIVERSE FOR NIKITA 🌻 — DESIGN SYSTEM & TOKENS
+   Aesthetic: Romantic Botanical Journal, Vintage Cream Stationery,
+              Golden Sunlight, Pressed Floral Details & Fine Editorial Serif
+   =================================================================== */
+
+:root {
+  /* Curated Color Palette */
+  --color-ivory: #FFF8E9;
+  --color-cream: #FCF4E5;
+  --color-parchment: #F7ECD5;
+  --color-paper: #FFFDF9;
+  --color-butter: #F8D879;
+  --color-sunflower: #E8A928;
+  --color-amber: #D48816;
+  --color-green-deep: #355943;
+  --color-green-sage: #5A7E68;
+  --color-green-leaf: #497155;
+  --color-cocoa: #6C4B3B;
+  --color-cocoa-deep: #4E3427;
+  --color-blush: #F2D8D0;
+  --color-blush-soft: #FDF3F0;
+  --color-gold-glow: rgba(232, 169, 40, 0.35);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-cursive: 'Homemade Apple', cursive;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(108, 75, 59, 0.06);
+  --shadow-md: 0 8px 24px rgba(108, 75, 59, 0.09);
+  --shadow-lg: 0 16px 38px rgba(108, 75, 59, 0.12), 0 4px 12px rgba(232, 169, 40, 0.08);
+  --shadow-card: 0 20px 48px rgba(78, 52, 39, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-gold: 0 0 30px rgba(232, 169, 40, 0.4);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base Reset & Smoothness */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-ivory);
+  color: var(--color-cocoa-deep);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(248, 216, 121, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(242, 216, 208, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(232, 169, 40, 0.15) 0%, transparent 50%);
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--color-cocoa-deep);
+}
+
+/* Subtle vintage handmade paper grain overlay */
+.paper-grain-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-butter);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sunflower);
+}
+
+/* Typography Utilities */
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--color-butter);
+  color: var(--color-cocoa-deep);
+}
+
+/* Floating Petal Canvas */
+.petal-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Golden Sunbeam Ambient Glow in Corner */
+.ambient-sunbeam {
+  position: fixed;
+  top: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(248, 216, 121, 0.4) 0%, rgba(232, 169, 40, 0.15) 40%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: sunbeamPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes sunbeamPulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.7; }
+  100% { transform: scale(1.15) translate(-30px, 20px); opacity: 0.95; }
+}
+
+/* ===================================================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   =================================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #F8D879 0%, #E8A928 100%);
+  color: #3B2A1F;
+  border: 1px solid rgba(232, 169, 40, 0.4);
+  padding: 16px 36px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(232, 169, 40, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: all 0.35s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(232, 169, 40, 0.45), 0 0 20px rgba(248, 216, 121, 0.4);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 253, 249, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(108, 75, 59, 0.18);
+  color: var(--color-cocoa);
+  padding: 12px 24px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: #FFFDF9;
+  border-color: var(--color-sunflower);
+  color: var(--color-cocoa-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===================================================================
+   GLOBAL FLOATING SIGNATURE: "Love you, mah baby ♡"
+   =================================================================== */
+
+.persistent-signature {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(232, 169, 40, 0.45);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(108, 75, 59, 0.12), 0 2px 8px rgba(232, 169, 40, 0.2);
+  cursor: pointer;
+  user-select: none;
+  animation: signatureFloat 5s ease-in-out infinite, signatureFadeIn 1.2s ease-out forwards;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.persistent-signature:hover {
+  transform: scale(1.06) translateY(-4px);
+  box-shadow: 0 12px 30px rgba(108, 75, 59, 0.18), 0 0 20px rgba(232, 169, 40, 0.35);
+  border-color: var(--color-sunflower);
+}
+
+.signature-text {
+  font-family: var(--font-handwriting);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-cocoa-deep);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.signature-heart {
+  color: #E24A6F;
+  font-size: 1.1rem;
+  display: inline-block;
+  animation: heartThrob 2s ease-in-out infinite;
+}
+
+.signature-flower {
+  font-size: 1.15rem;
+  display: inline-block;
+  animation: flowerSway 3.5s ease-in-out infinite;
+}
+
+@keyframes signatureFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes signatureFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartThrob {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.22); }
+  60% { transform: scale(1.05); }
+}
+
+@keyframes flowerSway {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(12deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+/* ===================================================================
+   AUDIO TOGGLE BUTTON
+   =================================================================== */
+
+.audio-toggle-btn {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 253, 249, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 169, 40, 0.3);
+  border-radius: 9999px;
+  color: var(--color-cocoa);
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.audio-toggle-btn:hover {
+  background: #FFFDF9;
+  border-color: var(--color-sunflower);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.sound-bar {
+  width: 2.5px;
+  background: var(--color-sunflower);
+  border-radius: 2px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.sound-bar.active:nth-child(1) { animation: soundBarWave 1.2s ease-in-out infinite alternate; }
+.sound-bar.active:nth-child(2) { animation: soundBarWave 0.8s ease-in-out infinite alternate 0.2s; }
+.sound-bar.active:nth-child(3) { animation: soundBarWave 1.4s ease-in-out infinite alternate 0.4s; }
+.sound-bar.active:nth-child(4) { animation: soundBarWave 1s ease-in-out infinite alternate 0.1s; }
+
+@keyframes soundBarWave {
+  0% { height: 3px; }
+  100% { height: 14px; }
+}
+
+/* ===================================================================
+   BOTANICAL JOURNAL CARD STYLING & DECORATION
+   =================================================================== */
+
+.journal-paper {
+  background: var(--color-paper);
+  border-radius: 18px;
+  border: 1px solid rgba(232, 169, 40, 0.2);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vintage Paper Tape Accent */
+.washi-tape {
+  position: absolute;
+  width: 110px;
+  height: 28px;
+  background: rgba(248, 216, 121, 0.7);
+  backdrop-filter: blur(4px);
+  border-left: 2px dashed rgba(108, 75, 59, 0.2);
+  border-right: 2px dashed rgba(108, 75, 59, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+}
+
+.tape-top-center {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+}
+
+.tape-top-left {
+  top: -10px;
+  left: 20px;
+  transform: rotate(-3.5deg);
+}
+
+.tape-top-right {
+  top: -10px;
+  right: 20px;
+  transform: rotate(4deg);
+}
+
+/* Botanical Pressed Leaf Accent */
+.botanical-stamp {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-green-sage);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===================================================================
+   HERO PORTRAIT STYLING
+   =================================================================== */
+
+.portrait-mount {
+  position: relative;
+  padding: 16px;
+  background: #FFFDF9;
+  border-radius: 20px;
+  box-shadow: 0 24px 50px rgba(108, 75, 59, 0.16), 0 4px 16px rgba(232, 169, 40, 0.1);
+  border: 1px solid rgba(248, 216, 121, 0.4);
+  transform: rotate(-1.2deg);
+  transition: transform 0.5s var(--ease-spring), box-shadow 0.5s ease;
+}
+
+.portrait-mount:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 30px 60px rgba(108, 75, 59, 0.22), 0 0 30px rgba(232, 169, 40, 0.25);
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: var(--color-parchment);
+  border: 1px solid rgba(108, 75, 59, 0.1);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%; /* Perfectly framed on Nikita's smile */
+  display: block;
+  filter: contrast(1.02) saturate(1.03);
+  transition: transform 0.8s var(--ease-smooth);
+}
+
+.portrait-mount:hover .portrait-img {
+  transform: scale(1.04);
+}
+
+.handwritten-annotation {
+  font-family: var(--font-handwriting);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-sunflower);
+  transform: rotate(-4deg);
+  display: inline-block;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* ===================================================================
+   HEARTFELT LETTER STYLING
+   =================================================================== */
+
+.letter-stationery {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #FFFDF9;
+  border-radius: 16px;
+  padding: 56px 48px;
+  box-shadow: 0 20px 48px rgba(108, 75, 59, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(232, 169, 40, 0.25);
+  position: relative;
+  background-image: 
+    linear-gradient(rgba(108, 75, 59, 0.04) 1px, transparent 1px);
+  background-size: 100% 34px;
+}
+
+.wax-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #E8A928 0%, #B87212 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFDF9;
+  font-size: 26px;
+  box-shadow: 0 6px 16px rgba(184, 114, 18, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  margin: 0 auto 28px;
+  border: 2px solid rgba(255, 248, 233, 0.4);
+}
+
+/* ===================================================================
+   INTERACTIVE SUNFLOWER GARDEN
+   =================================================================== */
+
+.garden-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  min-height: 480px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.garden-soil {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to top, rgba(108, 75, 59, 0.15), transparent);
+  border-radius: 9999px;
+}
+
+.interactive-flower-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.interactive-flower-unit:hover {
+  transform: translateY(-8px);
+}
+
+.flower-note-bubble {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  background: #FFFDF9;
+  border: 1.5px solid var(--color-sunflower);
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-family: var(--font-handwriting);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-cocoa-deep);
+  box-shadow: 0 10px 24px rgba(108, 75, 59, 0.15), 0 0 14px rgba(232, 169, 40, 0.2);
+  width: 220px;
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+  animation: noteFloat 0.4s var(--ease-spring) forwards;
+}
+
+.flower-note-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: var(--color-sunflower) transparent transparent;
+  display: block;
+  width: 0;
+}
+
+@keyframes noteFloat {
+  0% { opacity: 0; transform: translateY(12px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===================================================================
+   SURPRISE ENVELOPE (UNFOLDING LETTER)
+   =================================================================== */
+
+.envelope-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.envelope-box {
+  width: 320px;
+  height: 200px;
+  background: #F7ECD5;
+  border: 1.5px solid rgba(108, 75, 59, 0.2);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.envelope-box:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(108, 75, 59, 0.18), 0 0 25px rgba(232, 169, 40, 0.25);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 110px solid #E8D9BD;
+  transform-origin: top;
+  transition: transform 0.6s var(--ease-spring);
+  z-index: 4;
+}
+
+.envelope-box.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+/* Paper letter unfolding */
+.unfolded-secret-note {
+  background: #FFFDF9;
+  border: 1px solid rgba(232, 169, 40, 0.3);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 620px;
+  margin: 30px auto 0;
+  box-shadow: 0 24px 50px rgba(108, 75, 59, 0.14);
+  position: relative;
+  animation: letterUnfold 0.8s var(--ease-smooth) forwards;
+}
+
+@keyframes letterUnfold {
+  0% { opacity: 0; transform: translateY(40px) scale(0.92); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .letter-stationery {
+    padding: 36px 24px;
+  }
+  
+  .persistent-signature {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 14px;
+  }
+
+  .signature-text {
+    font-size: 1.15rem;
+  }
+
+  .audio-toggle-btn {
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+  }
+
+  .garden-container {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 420px;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
